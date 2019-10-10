@@ -2,7 +2,7 @@
 
 Polecam najpiew czytać rozdział instrukcji, próbować go wykonać samemu, w razie wątpliwości zapytać mnie.
 
-Pamiętajcie też że D21 to budynek otwarty dla wszystkich studentów, bądźmy dla nich mili - nie zachowujmy się głośno
+Pamiętajcie też że D21 to budynek otwarty dla wszystkich studentów, bądźmy dla nich mili - nie zachowujmy się głośno.
 
 # Przygotowanie komputera
 
@@ -14,7 +14,10 @@ Oczywiście jeśli chcesz coś innego, śmiało.
 
 ![](images/partitions.png)
 
-Stwórz wolną partycję na dysku, żeby zainstalować tam Linuxa. **30GB** to minimalny rozmiar żeby robić cokolwiek, do poważnej pracy minimum **70GB**.  
+Stwórz wolną partycję na dysku, żeby zainstalować tam Linuxa. 
+Klikasz prawym którąś partycję -> zmniejsz -> wpisujesz rozmiar.
+
+**30GB** to minimalny rozmiar żeby robić cokolwiek, do poważnej pracy minimum **70GB**.  
 
 
 ## Wyłącz fast startup
