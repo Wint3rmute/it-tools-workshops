@@ -73,7 +73,8 @@ Są banalne w użyciu - podłącz pendrive, wybierz pobrany obraz Linuxa w progr
 
 # Proces instalacji
 
-**Uważnie czytaj dialogi**
+**Uważnie czytaj dialogi.**
+
 **Jeśli Twój laptop ma GPU Nvidii to zawołaj mnie podczas uruchamiania**
 ## Język, klawiatura
 Polecam angielski, łatwiej będzie potem nawigować po tutorialach.
