@@ -74,6 +74,7 @@ Są banalne w użyciu - podłącz pendrive, wybierz pobrany obraz Linuxa w progr
 # Proces instalacji
 
 **Uważnie czytaj dialogi**
+**Jeśli Twój laptop ma GPU Nvidii to zawołaj mnie podczas uruchamiania**
 ## Język, klawiatura
 Polecam angielski, łatwiej będzie potem nawigować po tutorialach.
 Polska klawiatura jest akurat dość ważna, bo bez niej nie działają polskie znaki.
