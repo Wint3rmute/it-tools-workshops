@@ -1,3 +1,9 @@
+# Słowem wstępu
+
+Polecam najpiew czytać rozdział instrukcji, próbować go wykonać samemu, w razie wątpliwości zapytać mnie.
+
+Pamiętajcie też że D21 to budynek otwarty dla wszystkich studentów, bądźmy dla nich mili - nie zachowujmy się głośno
+
 # Przygotowanie komputera
 
 ## Pobierz instalator (ISO) z Ubuntu z oficjalnej strony
