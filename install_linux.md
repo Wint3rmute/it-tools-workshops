@@ -22,6 +22,7 @@ Klikasz prawym którąś partycję -> zmniejsz -> wpisujesz rozmiar.
 
 ## Wyłącz fast startup
 ![](images/fast_startup.png)
+<br>
 Funkcja fast startup czasami nie pozwala Linuxowi grzebanie w partycjach, uniemożliwiając instalację. Po zainstalowaniu pingwina można włączyć fast startup ponownie (chociaż TBH ja nie widzę różnicy w prędkości uruchamiania).
 
 
