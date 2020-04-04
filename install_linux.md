@@ -109,7 +109,7 @@ To wszystko git, nie musisz nic robić
 * Moją okejkę pod układem partycji (wołaj, serio)
 
 
-# Po instalacji
+# Po instalacji (jeszcze nie rebootuj)
 
 ## Laptopy z GPU Nvidii
 
@@ -119,10 +119,14 @@ Jest spora szansa że wasza karta graficzna będzie się kłóciła z domyślnym
 ## Praca na baterii
 Do zrobienia obowiązkowo na każdym laptopie.
 
+Ubuntu:
 `sudo apt update`
-
 `sudo apt install tlp acpi`
 
+Manjaro:
+`sudo pacman -S tlp acpi`
+
+A na koniec wszyscy:
 `sudo systemctl enable tlp`
 
 Jak to zrobicie, wołajcie
