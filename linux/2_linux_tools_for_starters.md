@@ -20,7 +20,7 @@ Prawie wszystkie te programy można pobrać za pomocą swojego package managera 
 #
 ### Usprawnienia shella
 
-[zsh](https://wiki.archlinux.org/index.php/zsh) - Subiektywnie najlepszy shell (yes fishermen, you heard me right). Zainstalowana domyślnie na wszystkich normalnych dystrybucjach.
+[zsh](https://wiki.archlinux.org/index.php/zsh) - Subiektywnie najlepszy shell (*yes fishermen, you heard me right*). Zainstalowana domyślnie na wszystkich normalnych dystrybucjach.
 
 [Antigen](https://github.com/zsh-users/antigen) - Fajny menadżer rozszerzeń do zsh.
 
