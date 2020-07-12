@@ -1,6 +1,7 @@
 ### Programy do spraw codziennych
 
 [Flameshot](https://flameshot.js.org/#/) - Screenshoty po ludzku
+[KDE Connect](https://kdeconnect.kde.org/) - Jeśli używasz KDE i masz smartfona z Androidem
 
 #
 ### Usprawnienia shella
@@ -18,3 +19,10 @@
 [TheFuck](https://github.com/nvbn/thefuck) - Poprawia literówki w komendach, intuicyjny sposób użycia.
 
 [Aliasy pod komendy gitowe w Zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet#git) - Domyślnie aktywne w Oh My Zsh i w Antigenie.
+
+#
+### AUR helpers
+
+**Tylko dla ludzi z Manjaro/Archem**
+
+[Pikaur](https://github.com/actionless/pikaur) - Działa, tyle wystarczy
