@@ -1,6 +1,6 @@
 ## Słowem wstępu
 
-Prawie wszystkie  tych programów można pobrać za pomocą swojego package managera (`apt install <pakiet>` lub `pacman -S <pakiet>`). Strony internetowe podaję po to, żeby poczytać na nich o danym programie i nauczyć się go używać. Nie próbujcie ściągać paczek .deb i je instalować, od tego są package managery.
+Prawie wszystkie te programy można pobrać za pomocą swojego package managera (`apt install <pakiet>` lub `pacman -S <pakiet>`). Strony internetowe podaję po to, żeby poczytać na nich o danym programie i nauczyć się go używać. Nie próbujcie ściągać paczek .deb i je instalować, od tego są package managery.
 
 #
 
