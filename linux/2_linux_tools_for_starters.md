@@ -16,6 +16,7 @@ Prawie wszystkie te programy można pobrać za pomocą swojego package managera 
 
 [VLC](https://www.videolan.org/index.html) - Mam nadzieję że nie trzeba przedstawiać xD
 
+[ffmpeg](https://ffmpeg.org/) - Konwertuje między różnymi formatami video (i wiele więcej, jeśli chodzi o pracę z formatami/streamami video). 
 
 #
 ### Usprawnienia shella
