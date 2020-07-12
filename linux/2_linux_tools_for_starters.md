@@ -1,6 +1,7 @@
 ### Programy do spraw codziennych
 
 [Flameshot](https://flameshot.js.org/#/) - Screenshoty po ludzku
+
 [KDE Connect](https://kdeconnect.kde.org/) - Jeśli używasz KDE i masz smartfona z Androidem
 
 #
