@@ -9,7 +9,7 @@
 
 [Antigen](https://github.com/zsh-users/antigen) - Fajny menadżer rozszerzeń do zsh.
 
-[Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) - Jeśli jesteś zbyt leniwy/wa, żeby przeczytać instrukcję instalacji Antigena, Ph my Zsh jest minimalnie wolniejsze, ale instaluje się zupełnie automatycznie.
+[Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) - Jeśli jesteś zbyt leniwy/wa, żeby przeczytać instrukcję instalacji Antigena, Oh my Zsh jest minimalnie wolniejsze, ale instaluje się zupełnie automatycznie.
 
 
 #
