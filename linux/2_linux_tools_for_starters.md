@@ -6,9 +6,9 @@ Prawie wszystkie te programy można pobrać za pomocą swojego package managera 
 
 ### Programy do spraw codziennych
 
-[Flameshot](https://flameshot.js.org/#/) - Screenshoty po ludzku
+[Flameshot](https://flameshot.js.org/#/) - Screenshoty po ludzku.
 
-[KDE Connect](https://kdeconnect.kde.org/) - Jeśli używasz KDE i masz smartfona z Androidem
+[KDE Connect](https://kdeconnect.kde.org/) - Jeśli używasz KDE i masz smartfona z Androidem.
 
 [Simple Screen Recorder](https://www.maartenbaert.be/simplescreenrecorder/) - Jak w nazwie.
 
