@@ -43,6 +43,11 @@ Prawie wszystkie te programy można pobrać za pomocą swojego package managera 
 
 
 #
+### Git workflow
+
+[Dodawanie klucza SSH](https://docs.github.com/en/enterprise/2.18/user/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account) - korzystanie z gita bez hasła. Ten tutorial ma małą wadę: zamiast instalować `xclip` i wykonywać `$ xclip -sel clip < ~/.ssh/id_rsa.pub`, można równie dobrze zrobić `cat ~/.ssh/id_rsa.pub` i skopiować output z terminala.
+
+#
 ### AUR helpers
 
 **Tylko dla ludzi z Manjaro/Archem**
