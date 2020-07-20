@@ -5,7 +5,9 @@ Prawie wszystkie te programy można pobrać za pomocą swojego package managera 
 #
 
 ### Bateria w laptopie
+
 [tlp](https://wiki.archlinux.org/index.php/Tlp) - apka do oszczędzania baterii, włącz i zapomnij
+
 [Powertop](https://wiki.archlinux.org/index.php/powertop) - tak samo jak wyżej, najlepiej ogarnąć sobie obie
 
 ### Programy do spraw codziennych
