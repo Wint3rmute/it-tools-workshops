@@ -41,11 +41,11 @@ Prawie wszystkie te programy można pobrać za pomocą swojego package managera 
 
 [Aliasy pod komendy gitowe w Zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet#git) - Domyślnie aktywne w Oh My Zsh i w Antigenie.
 
-[Entr](http://entrproject.org/) - Fajne narzędzie do automatyzacji, fajnie wytłumaczone [tutaj](https://youtu.be/9KAp_zWeI34).
+[sshfs](https://github.com/libfuse/sshfs) - Montowanie zdalnego systemu plików przez SSH.
 
 [Screen](https://linuxize.com/post/how-to-use-linux-screen/) - Wirtualne sesje terminalowe, mega przydatne przy pracy ze zdalnymi serwerami (można się odpiąć z SSH bez wyłączania procesów działających w shellu).
 
-[sshfs](https://github.com/libfuse/sshfs) - Montowanie zdalnego systemu plików przez SSH.
+[Entr](http://entrproject.org/) - Narzędzie do automatyzacji, fajnie wytłumaczone [tutaj](https://youtu.be/9KAp_zWeI34).
 
 
 #
