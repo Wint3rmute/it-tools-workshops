@@ -1,4 +1,11 @@
-# A simple presentation framework for my IT Tools presentations
+# Materials for IT Tools Workshops i organised on my uni
+
+This repo contains:
+- `learning_materials` - A few tutorials I've written for linux first-timers  
+- `presentation framework`- Framework used for making my presentations
+
+
+## A simple presentation framework for my IT Tools presentations
 No such tool existed, so I made it myself
 
 ### Features
