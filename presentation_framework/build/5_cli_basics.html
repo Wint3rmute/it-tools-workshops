@@ -1,0 +1,773 @@
+<!-- Building PresentationStartRenderable --><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./libs/asciinema-player.css">
+    <link rel="stylesheet" href="./libs/reveal.css">
+    <script src="./libs/asciinema-player.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./Comfortaa-VariableFont:wght.ttf"> -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Regular.ttf">  -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Bold.ttf"> -->
+
+    <title>Prometheus Presentation Framework</title>
+
+    <link rel="stylesheet" href="./libs/presentation.css">
+
+</head>
+
+<body>
+
+    <div class='reveal' id='impress'>
+        <div class='slides'><!-- Building SlideBeginRenderable --><section id="slide0" data-state="slide0">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1>Wiersz polecenia</h1>
+<h2>Podstawy</h2><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide1" data-state="slide1">
+<div class="step slide "><!-- Building MarkdownRenderable --><p><span style="color: #BB80B3"> <em>It's the high-level glue between you and the machine.</em></p>
+<div style="padding-left:400px; padding-top: 10px">
+~ Bash By Example, Part 1
+</div><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide2" data-state="slide2">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Co to tak naprawdę jest?</h2>
+<p><br></p>
+<ul>
+<li>
+<p>Sposób <span style="color: #82AAFF"> interakcji z komputerem  </span> <em>(inaczej niż graficznie)</em></p>
+</li>
+<li>
+<p>Przodek interfejsu graficznego</p>
+</li>
+<li>
+<p><span style="color: #F07178"> Genialne narzędzie </span> dla informatyków</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide3" data-state="slide3">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1>Po co mi to?</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide4" data-state="slide4">
+<div class="step slide "><!-- Building MarkdownRenderable --><ul>
+<li>
+<p><span style="color: #FF5370">   Automatyzacja </span></p>
+</li>
+<li>
+<p><span style="color: #F78C6C">   Większa wiedza i kontrola nad środowiskiem pracy </span></p>
+</li>
+<li>
+<p><span style="color: #FFCB6B">   Szybkość <em>(ale nie przesadzajmy)</em> </span></p>
+</li>
+<li>
+<p><span style="color: #C3E88D">   Terminal-only features 🤫 </span></p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide5" data-state="slide5">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><span style="color: #F78C6C"> Trochę teorii</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide6" data-state="slide6">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Różne filozofie</h2>
+<h1></h1>
+<p>Graficznie: <span style="color: #FF5370">   uruchom raz, wyklikaj inne guziki</span></p>
+<p>Terminal: <span style="color: #C3E88D">   uruchom wiele razy, z różnymi <em>opcjami</em></span></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide7" data-state="slide7">
+<div class="step slide rly_long"><!-- Building MarkdownRenderable --><h2>Opcje i flagi</h2>
+<h3><span style="color: #C3E88D">  Opcje </span></h3>
+<p>Wszystko co przekazujemy do uruchamianego programu</p><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video1"
+    src="casts/cli_ping_basic.cast"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video1").play();
+            document.getElementById("video1").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide7', function() {
+            setTimeout(function() {
+                document.getElementById("video1").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide8', function() {
+            document.getElementById("video1").pause();
+        } );
+
+        Reveal.addEventListener( 'slide6', function() {
+            document.getElementById("video1").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide8" data-state="slide8">
+<div class="step slide rly_long"><!-- Building MarkdownRenderable --><h2>Opcje i flagi</h2>
+<h3><span style="color: #FF5370">  Flagi </span></h3>
+<p>Sposób na <em>poukładanie</em> opcji</p><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video2"
+    src="casts/cli_flag_basic.cast"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video2").play();
+            document.getElementById("video2").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide8', function() {
+            setTimeout(function() {
+                document.getElementById("video2").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide9', function() {
+            document.getElementById("video2").pause();
+        } );
+
+        Reveal.addEventListener( 'slide7', function() {
+            document.getElementById("video2").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide9" data-state="slide9">
+<div class="step slide rly_long"><!-- Building MarkdownRenderable --><h2>Opcje i flagi</h2>
+<h3><span style="color: #FF5370">  Wiele flag - wiele opcji </span></h3><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video3"
+    src="casts/cli_flag_nonbasic.cast"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video3").play();
+            document.getElementById("video3").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide9', function() {
+            setTimeout(function() {
+                document.getElementById("video3").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide10', function() {
+            document.getElementById("video3").pause();
+        } );
+
+        Reveal.addEventListener( 'slide8', function() {
+            document.getElementById("video3").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide10" data-state="slide10">
+<div class="step slide rly_long"><!-- Building MarkdownRenderable --><h2>Ok ale skąd wiedziałeś co to <code>-c</code> albo <code>-i</code></h2>
+<h1></h1>
+<h3>Czyli uniwersalne <code>--help</code></h3>
+<h1></h1><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video4"
+    src="casts/cli_ping_help.cast"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video4").play();
+            document.getElementById("video4").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide10', function() {
+            setTimeout(function() {
+                document.getElementById("video4").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide11', function() {
+            document.getElementById("video4").pause();
+        } );
+
+        Reveal.addEventListener( 'slide9', function() {
+            document.getElementById("video4").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide11" data-state="slide11">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><code>man</code> - <span style="color: #C3E88D"> Linux manual</h2><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video5"
+    src="casts/man_ping"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video5").play();
+            document.getElementById("video5").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide11', function() {
+            setTimeout(function() {
+                document.getElementById("video5").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide12', function() {
+            document.getElementById("video5").pause();
+        } );
+
+        Reveal.addEventListener( 'slide10', function() {
+            document.getElementById("video5").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide12" data-state="slide12">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><span style="color: #BB80B3"> Praktyka</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide13" data-state="slide13">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3>Pierwszy i najważniejszy tip</h3>
+<p><br></p>
+<h1 style="padding-left: 45px">
+ <span style="color: #FF5370"> Używaj taba
+</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide14" data-state="slide14">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video6"
+    src="casts/use_the_damn_tab"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video6").play();
+            document.getElementById("video6").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide14', function() {
+            setTimeout(function() {
+                document.getElementById("video6").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide15', function() {
+            document.getElementById("video6").pause();
+        } );
+
+        Reveal.addEventListener( 'slide13', function() {
+            document.getElementById("video6").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide15" data-state="slide15">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3>Pamiętaj o strzałkach</h3>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> ↑ -  poprzednia komenda w historii </p>
+</li>
+<li>
+<p><span style="color: #FF5370"> ↓ - następna komenda w historii</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide16" data-state="slide16">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video7"
+    src="casts/arrows_history"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video7").play();
+            document.getElementById("video7").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide16', function() {
+            setTimeout(function() {
+                document.getElementById("video7").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide17', function() {
+            document.getElementById("video7").pause();
+        } );
+
+        Reveal.addEventListener( 'slide15', function() {
+            document.getElementById("video7").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide17" data-state="slide17">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3>Jak <span style="color: #F78C6C"> <em>myśleć</em> <span style="color: white"> o terminalu</h3>
+<p><br></p>
+<p>Na początek - jak o eksploratorze plików,</p>
+<p>z dziwnym UI i wieloma funkcjami.</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide18" data-state="slide18">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h2><span style="color: #C3E88D"> Strumienie, przekierowania, pipe'y</h2><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide19" data-state="slide19">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video8"
+    src="casts/redirect"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video8").play();
+            document.getElementById("video8").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide19', function() {
+            setTimeout(function() {
+                document.getElementById("video8").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide20', function() {
+            document.getElementById("video8").pause();
+        } );
+
+        Reveal.addEventListener( 'slide18', function() {
+            document.getElementById("video8").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide20" data-state="slide20">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video9"
+    src="casts/redirect_moar"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video9").play();
+            document.getElementById("video9").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide20', function() {
+            setTimeout(function() {
+                document.getElementById("video9").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide21', function() {
+            document.getElementById("video9").pause();
+        } );
+
+        Reveal.addEventListener( 'slide19', function() {
+            document.getElementById("video9").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide21" data-state="slide21">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Output redirection</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> <code>komenda &gt; plik</code> <span style="color: white"> - zapisz do pliku wynik komendy</p>
+</li>
+<li>
+<p><span style="color: #FF5370"> <code>komenda &gt;&gt; plik</code> <span style="color: white"> - dopisz do pliku wynik komendy</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide22" data-state="slide22">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video10"
+    src="casts/pipe_grep"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video10").play();
+            document.getElementById("video10").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide22', function() {
+            setTimeout(function() {
+                document.getElementById("video10").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide23', function() {
+            document.getElementById("video10").pause();
+        } );
+
+        Reveal.addEventListener( 'slide21', function() {
+            document.getElementById("video10").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide23" data-state="slide23">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video11"
+    src="casts/less"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video11").play();
+            document.getElementById("video11").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide23', function() {
+            setTimeout(function() {
+                document.getElementById("video11").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide24', function() {
+            document.getElementById("video11").pause();
+        } );
+
+        Reveal.addEventListener( 'slide22', function() {
+            document.getElementById("video11").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide24" data-state="slide24">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video12"
+    src="casts/grep_dmesg"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video12").play();
+            document.getElementById("video12").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide24', function() {
+            setTimeout(function() {
+                document.getElementById("video12").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide25', function() {
+            document.getElementById("video12").pause();
+        } );
+
+        Reveal.addEventListener( 'slide23', function() {
+            document.getElementById("video12").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide25" data-state="slide25">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Pipe  '<code>|</code>'</h2>
+<p><br></p>
+<ul>
+<li>
+<p>Wysyła output jednej komendy do drugiej</p>
+</li>
+<li>
+<p>Może być łączone w <span style="color: #C3E88D"> łańcuchy</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide26" data-state="slide26">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video13"
+    src="casts/redirect_intro"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video13").play();
+            document.getElementById("video13").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide26', function() {
+            setTimeout(function() {
+                document.getElementById("video13").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide27', function() {
+            document.getElementById("video13").pause();
+        } );
+
+        Reveal.addEventListener( 'slide25', function() {
+            document.getElementById("video13").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide27" data-state="slide27">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video14"
+    src="casts/redirect_showcase"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video14").play();
+            document.getElementById("video14").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide27', function() {
+            setTimeout(function() {
+                document.getElementById("video14").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide28', function() {
+            document.getElementById("video14").pause();
+        } );
+
+        Reveal.addEventListener( 'slide26', function() {
+            document.getElementById("video14").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide28" data-state="slide28">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Przekierowanie inputu do programu</h2>
+<p><br></p>
+<h3><code>program &lt;&lt;&lt; input</code></h3>
+<p><br></p>
+<p><span style="color: #BB80B3"> Dodatkowo:</p>
+<h3><code>program &lt; plik_z_inputem</code></h3><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide29" data-state="slide29">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1>Skrypty</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide30" data-state="slide30">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video15"
+    src="casts/script_live_coding"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video15").play();
+            document.getElementById("video15").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide30', function() {
+            setTimeout(function() {
+                document.getElementById("video15").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide31', function() {
+            document.getElementById("video15").pause();
+        } );
+
+        Reveal.addEventListener( 'slide29', function() {
+            document.getElementById("video15").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide31" data-state="slide31">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h2>Podsumowanie</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #FF5370"> Czytajcie manual, komenda <code>man</code> powie wam wszystko</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Terminal jest naprawdę szybki - jeśli wiesz jak go używać</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> Shell potrafi zmusić programy do wspólnego działania</p>
+</li>
+<li>
+<p><span style="color: #C3E88D"> Automatyzacja jest dziecinnie łatwa</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide32" data-state="slide32">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h3><span style="color: #BB80B3"> <em>It's the high-level glue between you and the machine.</em></h3><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide33" data-state="slide33">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3>Co za tydzień?</h3><!-- Building SlideEndRenderable --></div>
+</section><!-- Building PresentationEndRenderable --></div>
+</div>
+<!-- <script src="./libs/impress.js"></script> -->
+<script src="./libs/reveal.js"></script>
+
+<script>
+    // impress().init();
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: false,
+        progress: false,
+        center: true,
+        hash: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/highlight/highlight.js', async: true },
+            // { src: 'plugin/search/search.js', async: true },
+            // { src: 'plugin/zoom-js/zoom.js', async: true },
+            // { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+
+
+</body>
+
+</html>

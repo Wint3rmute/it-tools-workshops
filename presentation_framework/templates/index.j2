@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Narzędzia Informatyczne PWr - prezentacje</title>
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 40px auto;
+            max-width: 650px;
+            line-height: 1.6;
+            font-size: 21px;
+            background-color: #263238;
+            color: #fff;
+            padding: 0 10px;
+            font-family: 'Comfortaa', cursive;
+            /*text-align: justify; */
+        }
+
+        a{
+            color: #82AAFF;
+        }
+        
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Narzędzia Informatyczne</h1>
+    <h2>Prezentacje z wykładów</h2>
+
+    Hejka, tutaj hostuję prezentacje. <br><br>
+    <b style="color: #FF5370">
+        Ostrzegam, prezentacje pisane są pod mój laptop, więc na waszym
+        sprzęcie różne rzeczy mogą wyglądać inaczej, rozjeżdżać się itd.
+
+        <br>
+        <br>
+        Zdecydowanie nie polecam odpalać ich na telefonie, mobilki nie uciągną tego płynnie.
+    </b>
+<br>
+<br>
+{% for file in html_files %}
+
+<h3>
+<a href={{file}}>{{file}}</a>
+</h3>
+
+{% endfor %}
+
+<br><br>
+
+Silnik do generowania prezentacji nie został stworzony z myślą o reponsywności, tylko z myślą o szybkim tworzeniu prezentacji na mój komputer.
+
+<br>
+<br>
+
+<i> FYI: prezentacje oryginalnie wyświetlane są w Chromium, w trybie fullscreen na ekranie FullHD. Jeśli używacie czegoś innego - polecam 
+po prostu odzoomować, jeśli coś nie będzie wyświetlało się odpowiednio. Also: Firefox FTW, lecz Chromium płynniej renderuje te dość ciężkie prezentacje. </i>
+
+
+</body>
+
+</html>

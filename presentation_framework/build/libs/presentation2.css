@@ -1,0 +1,89 @@
+.step {
+    font-size: 30px;
+    max-width: 1500px;
+    display: inline-block;
+    align-content: center;
+    padding-right: 70px;
+    padding-left: 70px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: left;
+    border-radius: 30px;
+    box-shadow: 0px 0px 41px -9px rgba(0, 0, 0, 0.75);
+    background-color: #fff;
+    color: black;
+    white-space: nowrap;
+    margin-right: 100px;
+}
+
+img,
+video {
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+.first_slide {
+    background: url('/images/back.jpg');
+    background-size: 150%;
+    color: white;
+}
+
+.big_slide {
+    /* background-color: aqua !;  */
+    padding-right: 30px !important;
+    padding-left: 30px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+/* 
+@font-face {
+    font-family: 'Comfortaa-Regular';
+    src: url("../fonts/Comfortaa-Bold.ttf") format("truetype");
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'Comfortaa-Bold';
+    src: url("../fonts/Comfortaa-Light.ttf") format("truetype");
+    font-weight: 200 !important;
+} */
+
+body {
+    font-weight: 900;
+    font-family: 'Comfortaa', cursive;
+    transition: 2s;
+    background-color: #ddd;
+    line-height: 45px;
+}
+
+strong {
+    font-family: 'Comfortaa' !important;
+    font-weight: 900;
+}
+
+.long {
+    margin-left: -90px !important;
+}
+
+.image {
+    padding: 0px !important;
+    margin: 0px !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    max-height: 120px !important;
+}
+
+.meme {
+    height: 500px;
+    border-radius: 15px;
+}
+
+
+/* 
+.asciinema-wrapper {
+    border: solid #263238 10px;
+    border-radius: 10px;
+} */

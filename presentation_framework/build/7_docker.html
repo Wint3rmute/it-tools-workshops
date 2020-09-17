@@ -1,0 +1,609 @@
+<!-- Building PresentationStartRenderable --><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./libs/asciinema-player.css">
+    <link rel="stylesheet" href="./libs/reveal.css">
+    <script src="./libs/asciinema-player.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./Comfortaa-VariableFont:wght.ttf"> -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Regular.ttf">  -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Bold.ttf"> -->
+
+    <title>Prometheus Presentation Framework</title>
+
+    <link rel="stylesheet" href="./libs/presentation.css">
+
+</head>
+
+<body>
+
+    <div class='reveal' id='impress'>
+        <div class='slides'><!-- Building SlideBeginRenderable --><section id="slide0" data-state="slide0">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><span style="color: #82AAFF"> Docker</h1>
+<h2>Podstawy kontenerów</h2><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide1" data-state="slide1">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Plan wykładu</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> Deployment - wdrażanie oprogramowania</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> Najczęstsze problemy w trakcie wdrożeń</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Idea kontenerów</p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Uruchamianie gotowych kontenerów Dockerowych</p>
+</li>
+<li>
+<p><span style="color: #82AAFF"> Budowanie własnego kontenera</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide2" data-state="slide2">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #C3E88D"> Deployment - czyli "<em>works on my machine</em>"</h3>
+<p><br></p>
+<ul>
+<li>
+<p>Co jest potrzebne, żeby uruchomić dany program?</p>
+</li>
+<li>
+<p>Jaki zestaw programów składa się na projekt?</p>
+</li>
+<li>
+<p>Jakie są zależności pomiędzy programami?</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide3" data-state="slide3">
+<div class="step slide "><!-- Building MarkdownRenderable --><h1><span style="color: #FF5370"> Dependency hell</h1>
+<p><br></p>
+<p><em>Program A wymaga biblioteki B, która do kompilacji</em></p>
+<p><em>wymaga programu C, który zależy na bibliotece D,</em></p>
+<p><em>której wersja 2.137A nie jest kompatynilna z...</em></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide4" data-state="slide4">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h3><span style="color: #C3E88D"> Projekt końcowy = program (kod/binarka) + <em>runtime</em></h3>
+<p><br></p>
+<p><span style="color: #C3E88D"> <em>Runtime</em> <span style="color: white"> - wszystkie programy/biblioteki/ustawienia,</p>
+<p>których program potrzebuje, żeby działać</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide5" data-state="slide5">
+<div class="step slide "><!-- Building MarkdownRenderable --><p>Wraz z instalowaniem kolejnych bibliotek, rośnie ryzyko:</p>
+<p><br></p>
+<ul>
+<li>
+<p>Błędu w konfiguracji</p>
+</li>
+<li>
+<p>Problemów z wersjami pakietów/bibliotek</p>
+</li>
+<li>
+<p>Konfliktu między paczkami</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide6" data-state="slide6">
+<div class="step slide "><!-- Building MarkdownRenderable --><p>A gdyby dało się zapakować <span style="color: #F78C6C"> aplikację <span style="color: white"> i <span style="color: #C3E88D"> runtime <span style="color: white"></p>
+<p>w <span style="color: #FF5370"> jeden kontener<span style="color: white">, który następnie pójdzie na produkcję?</p>
+<p><br></p>
+<p>Gratulacje, taka jest idea <span style="color: #82AAFF"> konteneryzacji<span style="color: white">.</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide7" data-state="slide7">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #FFCB6B"> To nic nowego - trochę historii</h3>
+<p><br></p>
+<p>FreeBSD - 1999: mechanizm <span style="color: #FFCB6B"> <code>jail</code></p>
+<p><em>several independent mini-systems called <span style="color: #FFCB6B"> jails<span style="color: white">,</em> </p>
+<p><em>all sharing the same kernel, with <span style="color: #C3E88D"> very little overhead<span style="color: white">.</em></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide8" data-state="slide8">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #82AAFF"> Kontener &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: white"> vs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #C3E88D"> Maszyna wirtualna</h3>
+<p><img alt="docker_vs_vm.png" src="images/docker_vs_vm.png" /></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide9" data-state="slide9">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h2><span style="color: #82AAFF"> Podsumowanie</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #FF5370"> Deployment nie jest łatwy</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> Skomplikowany program = skomplikowany setup</p>
+</li>
+<li>
+<p><span style="color: #C3E88D"> Konteneryzacja - spakowanie razem aplikacji i runtime'u</p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Kontener <code>!=</code> Maszyna wirtualna</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide10" data-state="slide10">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h2>Docker installation in 20 seconds</h2><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video1"
+    src="casts/20_secs_to_docker"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video1").play();
+            document.getElementById("video1").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide10', function() {
+            setTimeout(function() {
+                document.getElementById("video1").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide11', function() {
+            document.getElementById("video1").pause();
+        } );
+
+        Reveal.addEventListener( 'slide9', function() {
+            document.getElementById("video1").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide11" data-state="slide11">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #FF5370"> Jak zrobić kontener</h2>
+<p><br></p>
+<ul>
+<li>
+<p>Plik <span style="color: #82AAFF"> <code>Dockerfile</code></p>
+</li>
+<li>
+<p>Wybór <em>'podstawki'</em> - systemu bazowego</p>
+</li>
+<li>
+<p>Skrypty instalujące co trzeba</p>
+</li>
+</ul>
+<p><span style="color: #C3E88D"> Done !</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide12" data-state="slide12">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #C3E88D"> Prosty <code>Dockerfile</code> - skrypt w Pythonie</h2><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video2"
+    src="casts/simplest_docker"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video2").play();
+            document.getElementById("video2").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide12', function() {
+            setTimeout(function() {
+                document.getElementById("video2").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide13', function() {
+            document.getElementById("video2").pause();
+        } );
+
+        Reveal.addEventListener( 'slide11', function() {
+            document.getElementById("video2").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide13" data-state="slide13">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #C3E88D"> Prosty przykład - aplikacja webowa</h2>
+<p><br></p>
+<ul>
+<li>
+<p>Python - trochę kodu</p>
+</li>
+<li>
+<p>Framework Flask - biblioteki</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide14" data-state="slide14">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video3"
+    src="casts/flask"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video3").play();
+            document.getElementById("video3").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide14', function() {
+            setTimeout(function() {
+                document.getElementById("video3").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide15', function() {
+            document.getElementById("video3").pause();
+        } );
+
+        Reveal.addEventListener( 'slide13', function() {
+            document.getElementById("video3").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide15" data-state="slide15">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #FF5370"> Bezstanowość kontenerów dockerowych</h3><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video4"
+    src="casts/stateless"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video4").play();
+            document.getElementById("video4").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide15', function() {
+            setTimeout(function() {
+                document.getElementById("video4").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide16', function() {
+            document.getElementById("video4").pause();
+        } );
+
+        Reveal.addEventListener( 'slide14', function() {
+            document.getElementById("video4").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide16" data-state="slide16">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #82AAFF"> Udostępnianie systemu plików do kontenera</h3><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video5"
+    src="casts/docker_volumes"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video5").play();
+            document.getElementById("video5").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide16', function() {
+            setTimeout(function() {
+                document.getElementById("video5").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide17', function() {
+            document.getElementById("video5").pause();
+        } );
+
+        Reveal.addEventListener( 'slide15', function() {
+            document.getElementById("video5").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide17" data-state="slide17">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #F78C6C"> Wysyłanie kontenerów do chmury</h3><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video6"
+    src="casts/docker_push"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video6").play();
+            document.getElementById("video6").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide17', function() {
+            setTimeout(function() {
+                document.getElementById("video6").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide18', function() {
+            document.getElementById("video6").pause();
+        } );
+
+        Reveal.addEventListener( 'slide16', function() {
+            document.getElementById("video6").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide18" data-state="slide18">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><code>docker run -it kontener</code> (do eksperymentów)</h3><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video7"
+    src="casts/docker_runit"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video7").play();
+            document.getElementById("video7").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide18', function() {
+            setTimeout(function() {
+                document.getElementById("video7").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide19', function() {
+            document.getElementById("video7").pause();
+        } );
+
+        Reveal.addEventListener( 'slide17', function() {
+            document.getElementById("video7").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide19" data-state="slide19">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- P O D S U M O W A N I E  -->
+
+<h2><span style="color: #C3E88D"> Podsumowanie</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #FF5370"> Kontener jest <em>bezstanowy</em> - nie pamięta zmian</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> Domyślnie kontener jest zamknięty na świat</p>
+<ul>
+<li>
+<p>Ekspozycja portów</p>
+</li>
+<li>
+<p>Zamontowanie systemu plików</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Opcja <code>-it</code> pozwala na interakcję przez terminal</p>
+</li>
+<li>
+<p><span style="color: #82AAFF"> Wasze kontenery można hostować na Docker Hubie</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide20" data-state="slide20">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1>Większe projekty</h1>
+<h1><span style="color: #BB80B3"> <code>docker-compose</code></h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide21" data-state="slide21">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Docker-compose</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> Zdefiniowanie wielu kontenerów na raz</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Określenie powiązań między kontenerami</p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Łatwiejsze montowanie systemu plików</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide22" data-state="slide22">
+<div class="step slide "><!-- Building MarkdownRenderable --><p><img alt="" src="images/docker-compose-example.png" /></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide23" data-state="slide23">
+<div class="step slide rly_long"><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video8"
+    src="casts/docker-compose-example"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video8").play();
+            document.getElementById("video8").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide23', function() {
+            setTimeout(function() {
+                document.getElementById("video8").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide24', function() {
+            document.getElementById("video8").pause();
+        } );
+
+        Reveal.addEventListener( 'slide22', function() {
+            document.getElementById("video8").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide24" data-state="slide24">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h2><span style="color: #82AAFF"> Podsumowanie</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #FF5370"> <em>Skomplikowany software = skomplikowana konfiguracja</em></p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Kontener != Maszyna wirtualna</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> W kontenerze zamykamy: <em>aplikację, runtime i konfigurację</em></p>
+</li>
+<li>
+<p><span style="color: #C3E88D"> Kontenery są:</p>
+<ul>
+<li>
+<p>Odizolowane od hosta (chyba że sam coś udostępnisz)</p>
+</li>
+<li>
+<p><em>Stateless</em> - nie zapamiętują zmian w systemie plików</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #82AAFF"> Cały kontener możemy zuploadować do chmury</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide25" data-state="slide25">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1>To koniec?</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide26" data-state="slide26">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><span style="color: #C3E88D"> Ankietka</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide27" data-state="slide27">
+<div class="step slide "><!-- Building MarkdownRenderable --><h1>To tyle w tym semestrze!</h1>
+<p><br></p>
+<h3><span style="color: #C3E88D"> Dziękuję wszystkim, którzy przychodzili :)</h3>
+<p><span style="color: #BB80B3"> Mam nadzieję, że nauczyliście się czegoś przydatnego</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide28" data-state="slide28">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video9"
+    src="casts/christmas_sh"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video9").play();
+            document.getElementById("video9").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide28', function() {
+            setTimeout(function() {
+                document.getElementById("video9").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide29', function() {
+            document.getElementById("video9").pause();
+        } );
+
+        Reveal.addEventListener( 'slide27', function() {
+            document.getElementById("video9").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building PresentationEndRenderable --></div>
+</div>
+<!-- <script src="./libs/impress.js"></script> -->
+<script src="./libs/reveal.js"></script>
+
+<script>
+    // impress().init();
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: false,
+        progress: false,
+        center: true,
+        hash: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/highlight/highlight.js', async: true },
+            // { src: 'plugin/search/search.js', async: true },
+            // { src: 'plugin/zoom-js/zoom.js', async: true },
+            // { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+
+
+</body>
+
+</html>

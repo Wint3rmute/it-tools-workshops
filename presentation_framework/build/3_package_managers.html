@@ -1,0 +1,682 @@
+<!-- Building PresentationStartRenderable --><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./libs/asciinema-player.css">
+    <link rel="stylesheet" href="./libs/reveal.css">
+    <script src="./libs/asciinema-player.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./Comfortaa-VariableFont:wght.ttf"> -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Regular.ttf">  -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Bold.ttf"> -->
+
+    <title>Prometheus Presentation Framework</title>
+
+    <link rel="stylesheet" href="./libs/presentation.css">
+
+</head>
+
+<body>
+
+    <div class='reveal' id='impress'>
+        <div class='slides'><!-- Building SlideBeginRenderable --><section id="slide0" data-state="slide0">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><p><br></p>
+<h2>Package management</h2>
+<h4>instalowanie softu na Linuxie</h4>
+<p><br></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide1" data-state="slide1">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h1>Cel prezentacji</h1>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> Czym i po co są <strong>package managery</strong></p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> Instalowanie softu oficjalnym package managerem</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Aktualizowanie i usuwanie pakietów</p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Instalowanie programów spoza repozytorium</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide2" data-state="slide2">
+<div class="step slide image"><!-- Building MarkdownRenderable --><p><img class="meme" src="images/we_dont_do_that_here.jpg"/></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide3" data-state="slide3">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Package manager</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> Zarządza wszystkimi zainstalowanymi programami</p>
+</li>
+<li>
+<p><span style="color: #FF5370"> Pilnuje plików zainstalowanych aplikacji/bibliotek</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> Utrzymuje drzewo zależności - <code>dependency tree</code></p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Aktualizuje cały system </span> - za jednym zamachem</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide4" data-state="slide4">
+<div class="step slide big_slide"><!-- Building MarkdownRenderable --><h4><span style="color: #F78C6C"> Ubuntu - <code>apt</code></h4><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video1"
+    src="casts/upgrade_apt"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video1").play();
+            document.getElementById("video1").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide4', function() {
+            setTimeout(function() {
+                document.getElementById("video1").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide5', function() {
+            document.getElementById("video1").pause();
+        } );
+
+        Reveal.addEventListener( 'slide3', function() {
+            document.getElementById("video1").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><h4><span style="color: #C3E88D"> Manjaro - <code>pacman</code></h4><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video2"
+    src="casts/upgrade_pacman"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video2").play();
+            document.getElementById("video2").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide4', function() {
+            setTimeout(function() {
+                document.getElementById("video2").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide5', function() {
+            document.getElementById("video2").pause();
+        } );
+
+        Reveal.addEventListener( 'slide3', function() {
+            document.getElementById("video2").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide5" data-state="slide5">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><em>"Workflow"</em></h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide6" data-state="slide6">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #FFCB6B"> 1. Aktualizacja listy pakietów</h3>
+<h3><span style="color: #C3E88D"> 2. Pobieranie/aktualizowanie pakietów</h3><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide7" data-state="slide7">
+<div class="step slide big_slide"><!-- Building MarkdownRenderable --><h2>Pobieranie informacji o nowych pakietach</h2>
+<div style="width: 970px">
+
+<span style="color: #F78C6C"> <code style="position: relative;left: -15px; top: 50px; font-size: 80% ">apt update</code><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video3"
+    src="casts/update_apt"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video3").play();
+            document.getElementById("video3").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide7', function() {
+            setTimeout(function() {
+                document.getElementById("video3").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide8', function() {
+            document.getElementById("video3").pause();
+        } );
+
+        Reveal.addEventListener( 'slide6', function() {
+            document.getElementById("video3").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><p><span style="color: #C3E88D"> <code style="position: relative;left: -15px; top: 80px; font-size: 80% ">pacman -Sy </code></p><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video4"
+    src="casts/update_pacman"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video4").play();
+            document.getElementById("video4").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide7', function() {
+            setTimeout(function() {
+                document.getElementById("video4").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide8', function() {
+            document.getElementById("video4").pause();
+        } );
+
+        Reveal.addEventListener( 'slide6', function() {
+            document.getElementById("video4").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide8" data-state="slide8">
+<div class="step slide big_slide"><!-- Building MarkdownRenderable --><h2>Instalowanie nowych pakietów</h2>
+<div style="width: 970px">
+
+<span style="color: #F78C6C"> <code style="position: relative;left: -15px; top: 50px; font-size: 80% ">apt install </code><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video5"
+    src="casts/install_apt"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video5").play();
+            document.getElementById("video5").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide8', function() {
+            setTimeout(function() {
+                document.getElementById("video5").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide9', function() {
+            document.getElementById("video5").pause();
+        } );
+
+        Reveal.addEventListener( 'slide7', function() {
+            document.getElementById("video5").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><p><span style="color: #C3E88D"> <code style="position: relative;left: -15px; top: 80px; font-size: 80% ">pacman -S </code></p><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video6"
+    src="casts/install_pacman"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video6").play();
+            document.getElementById("video6").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide8', function() {
+            setTimeout(function() {
+                document.getElementById("video6").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide9', function() {
+            document.getElementById("video6").pause();
+        } );
+
+        Reveal.addEventListener( 'slide7', function() {
+            document.getElementById("video6").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide9" data-state="slide9">
+<div class="step slide "><!-- Building MarkdownRenderable --><h4>Skąd mam wiedzieć jak nazywa się paczka, której szukam?</h4>
+<h5>Google -&gt; <span style="color: #F78C6C"> <em>ubuntu packages</em></h5>
+<p><img alt="" src="images/ubuntu_packages.png" /></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide10" data-state="slide10">
+<div class="step slide "><!-- Building MarkdownRenderable --><h5>Google -&gt; <span style="color: #C3E88D"> <em>arch packages</em></h5>
+<p><img alt="" src="images/arch_packages.png" /></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide11" data-state="slide11">
+<div class="step slide big_slide"><!-- Building MarkdownRenderable --><h2>Instalowanie aktualizacji</h2>
+<div style="width: 970px">
+
+<span style="color: #F78C6C"> <code style="position: relative;left: -15px; top: 50px; font-size: 80% ">apt upgrade </code><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video7"
+    src="casts/upgrade_apt"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video7").play();
+            document.getElementById("video7").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide11', function() {
+            setTimeout(function() {
+                document.getElementById("video7").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide12', function() {
+            document.getElementById("video7").pause();
+        } );
+
+        Reveal.addEventListener( 'slide10', function() {
+            document.getElementById("video7").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><p><span style="color: #C3E88D"> <code style="position: relative;left: -15px; top: 80px; font-size: 80% ">pacman -Su </code></p><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video8"
+    src="casts/upgrade_pacman"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video8").play();
+            document.getElementById("video8").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide11', function() {
+            setTimeout(function() {
+                document.getElementById("video8").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide12', function() {
+            document.getElementById("video8").pause();
+        } );
+
+        Reveal.addEventListener( 'slide10', function() {
+            document.getElementById("video8").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide12" data-state="slide12">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Update list pakietów + aktualizacja</h2>
+<p><br></p>
+<p><span style="color: #F78C6C"> <code>sudo apt update &amp;&amp; sudo apt upgrade</code></p>
+<p><br></p>
+<p><span style="color: #C3E88D"> <code>sudo pacman -Syu</code></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide13" data-state="slide13">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><span style="color: #FF5370"> Usuwanie pakietów</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide14" data-state="slide14">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #FF5370"> Drzewo zależności - <code>dependency tree</code></h2>
+<p><br></p>
+<p>Program może opierać swoje działanie na innych</p>
+<p>programach (automatycznie ściągnie je <em>package manager</em>).</p>
+<p><br><br></p>
+<p>Programy nawzajem zależne od siebie formują</p>
+<p><span style="color: #C3E88D"> strukturę drzewiastą.</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide15" data-state="slide15">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3>Wszystkie zależności <span style="color: #F78C6C"> Firefoxa</h3><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video9"
+    src="casts/pactree"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video9").play();
+            document.getElementById("video9").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide15', function() {
+            setTimeout(function() {
+                document.getElementById("video9").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide16', function() {
+            document.getElementById("video9").pause();
+        } );
+
+        Reveal.addEventListener( 'slide14', function() {
+            document.getElementById("video9").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide16" data-state="slide16">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #F78C6C"> Usuwanie pakietu na Ubuntu</h3>
+<p><br></p>
+<ul>
+<li>
+<p><code>apt remove</code></p>
+</li>
+<li>
+<p><code>apt autoremove</code></p>
+</li>
+</ul>
+<p><br></p><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video10"
+    src="casts/remove_apt"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video10").play();
+            document.getElementById("video10").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide16', function() {
+            setTimeout(function() {
+                document.getElementById("video10").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide17', function() {
+            document.getElementById("video10").pause();
+        } );
+
+        Reveal.addEventListener( 'slide15', function() {
+            document.getElementById("video10").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide17" data-state="slide17">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #C3E88D"> Usuwanie pakietu w Manjaro</h3>
+<p><br></p>
+<p><code>sudo pacman -Rscn</code></p>
+<p><br></p><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video11"
+    src="casts/remove_pacman"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video11").play();
+            document.getElementById("video11").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide17', function() {
+            setTimeout(function() {
+                document.getElementById("video11").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide18', function() {
+            document.getElementById("video11").pause();
+        } );
+
+        Reveal.addEventListener( 'slide16', function() {
+            document.getElementById("video11").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide18" data-state="slide18">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3>Mojego programu nie ma w repozytoriach!</h3><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide19" data-state="slide19">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #BB80B3"> 3rd party repositories</h2>
+<p><br></p>
+<p>Osobne repozytoria dla produktów komercyjnych.</p>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #F78C6C"> Ubuntu - <code>snap</code></p>
+</li>
+<li>
+<p><span style="color: #C3E88D"> Manjaro - <code>AUR</code></p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide20" data-state="slide20">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #F78C6C"> <code>snap install</code></h3><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video12"
+    src="casts/snap_apt"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="26">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video12").play();
+            document.getElementById("video12").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide20', function() {
+            setTimeout(function() {
+                document.getElementById("video12").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide21', function() {
+            document.getElementById("video12").pause();
+        } );
+
+        Reveal.addEventListener( 'slide19', function() {
+            document.getElementById("video12").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide21" data-state="slide21">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Google -&gt; <span style="color: #BB80B3"> snap store</h2>
+<p><br></p>
+<ul>
+<li>
+<p>Discord</p>
+</li>
+<li>
+<p>Spotify</p>
+</li>
+<li>
+<p>VS Code</p>
+</li>
+<li>
+<p>IntelliJ IDEA</p>
+</li>
+<li>
+<p>PyCharm</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide22" data-state="slide22">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Dodawanie repozytoriów do <code>apta</code></h2>
+<h4><em>Na przykładzie edytora Atom</em></h4>
+<p><br></p>
+<p><code>sudo add-apt-repository ppa:webupd8team/atom</code></p>
+<p><code>sudo apt update</code></p>
+<p><code>sudo apt install atom</code></p>
+<p><br></p>
+<p><em>PPA - Personal Package Archive</em></p>
+<p><span style="color: #FF5370"> Uwaga, nieoficjalne (o s t r o ż n i e)</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide23" data-state="slide23">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #FF5370"> Mojego pakietu nie ma absolutnie nigdzie</h3>
+<p><br></p>
+<ul>
+<li>
+<p>Poszukaj alternatywy</p>
+</li>
+<li>
+<p>Jeżeli <strong>naprawdę musisz</strong> używać właśnie tego programu:</p>
+<ul>
+<li>
+<p>Używaj tylko oficjalnego tutoriala instalacyjnego</p>
+</li>
+<li>
+<p>Staraj się rozumieć wklejane z internetu komendy</p>
+</li>
+</ul>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide24" data-state="slide24">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><span style="color: #C3E88D"> Podsumowanie</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide25" data-state="slide25">
+<div class="step slide big_slide"><!-- Building MarkdownRenderable --><h4><span style="color: #FF5370"> Package manager</h4>
+<p>Narzędzie systemowe służące do instalowania pakietów.</p>
+<p><br></p>
+<h4><span style="color: #FFCB6B"> <code>update</code> vs <code>upgrade</code></h4>
+<p>Pobranie nowej listy pakietów <span style="color: #FFCB6B"> vs <span style="color: white"> pobranie aktualizacji pakietów.</p>
+<p><br></p>
+<h4><span style="color: #F78C6C"> Dependency tree</h4>
+<p>Pakiety zależą na pakietach - i tak dalej.</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building PresentationEndRenderable --></div>
+</div>
+<!-- <script src="./libs/impress.js"></script> -->
+<script src="./libs/reveal.js"></script>
+
+<script>
+    // impress().init();
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: false,
+        progress: false,
+        center: true,
+        hash: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/highlight/highlight.js', async: true },
+            // { src: 'plugin/search/search.js', async: true },
+            // { src: 'plugin/zoom-js/zoom.js', async: true },
+            // { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+
+
+</body>
+
+</html>

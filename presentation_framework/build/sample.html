@@ -1,0 +1,136 @@
+<!-- Building PresentationStartRenderable --><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./libs/asciinema-player.css">
+    <link rel="stylesheet" href="./libs/reveal.css">
+    <script src="./libs/asciinema-player.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./Comfortaa-VariableFont:wght.ttf"> -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Regular.ttf">  -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Bold.ttf"> -->
+
+    <title>Prometheus Presentation Framework</title>
+
+    <link rel="stylesheet" href="./libs/presentation.css">
+
+</head>
+
+<body>
+
+    <div class='reveal' id='impress'>
+        <div class='slides'><!-- Building SlideBeginRenderable --><section id="slide0" data-state="slide0">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><p><br></p>
+<h2>A sample presentation</h2>
+<div style="height: 60px">
+
+<div style="color: #ddd; position: relative; left: 390px; top: 15px; font-size: 70%">
+
+Fancy Logo<img src="images/akl.png" style="position: relative; top: 12px; left: 10px" alt="Smiley face" height="42" width="42">
+
+</div><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide1" data-state="slide1">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>A slide</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> This slide is written in Markdown</span></p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> It supports HTML mixins </span></p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> And Asciinema JS player embedding </span></p>
+</li>
+<li>
+<p><span style="color: #FF5370"> Renders to a RevealJS presentation </span></p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Looks pretty nice</span></p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide2" data-state="slide2">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Asciinema example</h2><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video1"
+    src="casts/20_secs_to_docker"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video1").play();
+            document.getElementById("video1").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide2', function() {
+            setTimeout(function() {
+                document.getElementById("video1").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide3', function() {
+            document.getElementById("video1").pause();
+        } );
+
+        Reveal.addEventListener( 'slide1', function() {
+            document.getElementById("video1").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- * Używanie i pisanie dokumentacji -->
+
+<!-- 
+* <span style="color: <span style="color: #BB80B3">"> Docker, live-coding, konfiguracja linuxa.. you tell me </span> --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide3" data-state="slide3">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h2>Jest grupka na fb!</h2>
+<p>Prezentacje na mojej stronce na GitHubie</p>
+<p><br>
+Zrobię też zbiór fajnych linków i tutoriali, <br>
+które się zgromadzą w trakcie spotkań</p>
+<p><br>
+<em>tldr wszystko będzie na grupie</em></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building PresentationEndRenderable --></div>
+</div>
+<!-- <script src="./libs/impress.js"></script> -->
+<script src="./libs/reveal.js"></script>
+
+<script>
+    // impress().init();
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: false,
+        progress: false,
+        center: true,
+        hash: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/highlight/highlight.js', async: true },
+            // { src: 'plugin/search/search.js', async: true },
+            // { src: 'plugin/zoom-js/zoom.js', async: true },
+            // { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+
+
+</body>
+
+</html>

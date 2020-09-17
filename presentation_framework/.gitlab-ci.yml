@@ -1,0 +1,15 @@
+image: python:3.8-alpine # Faster build times
+
+pages:
+  stage: deploy
+  script:
+  # - apk add python3
+  - pip3 install jinja2
+  - python3 /builds/mateusz.baczek1998/it-tools-pwr/build_index_page.py > /builds/mateusz.baczek1998/it-tools-pwr/build/index.html
+  - mkdir public
+  - mv /builds/mateusz.baczek1998/it-tools-pwr/build/* public
+  artifacts:
+    paths:
+    - public # This folder is finally pushed to the server, that's why the generated files are being moved there
+  only:
+  - master

@@ -1,0 +1,213 @@
+<!-- Building PresentationStartRenderable --><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./libs/asciinema-player.css">
+    <link rel="stylesheet" href="./libs/reveal.css">
+    <script src="./libs/asciinema-player.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./Comfortaa-VariableFont:wght.ttf"> -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Regular.ttf">  -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Bold.ttf"> -->
+
+    <title>Prometheus Presentation Framework</title>
+
+    <link rel="stylesheet" href="./libs/presentation.css">
+
+</head>
+
+<body>
+
+    <div class='reveal' id='impress'>
+        <div class='slides'><!-- Building SlideBeginRenderable --><section id="slide0" data-state="slide0">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><div style="padding-left: 90px">Git</div></h1>
+<h3>Praca w zespole</h3><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide1" data-state="slide1">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Czym jest git</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> VCS - system kontroli wersji</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> Zarządzanie kodem</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Dzielenie się kodem</p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Szybsze znajdywanie bugów</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide2" data-state="slide2">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Po co mi git</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> Do dowolnego projektu grupowego</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> Do chwalenia się kodem na <em>gitlabie/githubie</em></p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Na każdej rekrutacji do pracy pytają o gita</p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Dobry nawyk na backup swojej osobistej pracy</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide3" data-state="slide3">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1>Workflow</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide4" data-state="slide4">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Łatwy use case - na poczatek</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> Repozytorium hostowane na GitHubie</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> Kilka osób pracujących jednocześnie</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Wysyłanie i pobieranie kodu z/do repozytorium</p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Rozwiązywanie merge conflictów</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide5" data-state="slide5">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><code>git clone &lt;adres&gt;</code></h2>
+<p><br></p>
+<p><span style="color: #C3E88D"> Po prostu pobiera repozytorium</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide6" data-state="slide6">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><code>git status</code></h2>
+<p><br></p>
+<p><span style="color: #C3E88D"> pokazuje <em>co się dzieje</em></p>
+<p><br></p>
+<p><code>$ git status</code></p>
+<p><code>On branch master</code></p>
+<p><code>No commits yet</code></p>
+<p><code>nothing to commit (create/copy files and</code></p>
+<p><code>use "git add" to track)</code></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide7" data-state="slide7">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Po zapisaniu pliku w repozytorium</h2>
+<p><br></p>
+<p><code>Untracked files:</code></p>
+<p><code>(use "git add &lt;file&gt;..." to include</code></p>
+<p><code>in what will be committed)</code></p>
+<p><br></p>
+<p><span style="color: #FF5370"><code> file.cpp</code></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide8" data-state="slide8">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #FFCB6B"> <code>git add -A</code></h2>
+<p>Dodaje wszystkie zmiany do <code>snapshota</code></p>
+<p><br></p>
+<p><span style="color: #FFCB6B"> <code>git add ścieżka/do/pliku.cpp</code> </p>
+<p>doda pojedynczy plik</p>
+<p><br></p>
+<p><span style="color: #FFCB6B"> <code>git add ścieżka/do/folderu</code> </p>
+<p>doda wszystkie zmiany w folderze</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide9" data-state="slide9">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><code>git status</code> po dodaniu plików</h2>
+<p><br></p>
+<p><code>Changes to be committed:</code></p>
+<p><code>(use "git rm --cached &lt;file&gt;..." to unstage)</code></p>
+<p><span style="color: #C3E88D"><code> new file:   file.cpp</code></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide10" data-state="slide10">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #F78C6C"> <code>git commit -m "Opis zmian"</code></h2>
+<p><br>
+Zapisuje aktualnie dodane zmiany do commmita</p>
+<p>i nadaje mu wybraną przez Was nazwę.</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide11" data-state="slide11">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><code>git status</code> po zrobieniu commita</h2>
+<p><br></p>
+<p><code>On branch master</code></p>
+<p><code>nothing to commit, working tree clean</code></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide12" data-state="slide12">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #C3E88D"> <code>git push</code></h2>
+<p><br>
+Wysłanie swoich commitów na serwer.</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide13" data-state="slide13">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #C3E88D"> <code>git pull</code></h2>
+<p><br>
+Pobranie cudzych zmian z serwera.</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide14" data-state="slide14">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><span style="color: #F78C6C"> Konflikty</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide15" data-state="slide15">
+<div class="step slide "><!-- Building MarkdownRenderable --><p><code># Rozdział 1</code></p>
+<p><code>Tu będzie rozdział 1</code></p>
+<p><br>
+<br></p>
+<p><code># Rozdział 2</code></p>
+<p><code>Tu będzie rozdział 2</code></p>
+<p><br>
+<br></p>
+<p><code># Rozdział 3</code></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide16" data-state="slide16">
+<div class="step slide "><!-- Building MarkdownRenderable --><p><img alt="" src="images/conflicting_files.png" /></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide17" data-state="slide17">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #FF5370"> Jeśli ktoś wykona <code>git pull</code></h3>
+<p><br></p>
+<p><img alt="" src="images/auto_merge_fail.png" /></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide18" data-state="slide18">
+<div class="step slide "><!-- Building MarkdownRenderable --><p><img alt="" src="images/conflict.png" /></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide19" data-state="slide19">
+<div class="step slide "><!-- Building MarkdownRenderable --><p>(...)</p>
+<p><code># Rozdzial 2</code></p>
+<p><span style="color: #C3E88D"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD </code></p>
+<p><code>Tu będzie rozdział 2</code></p>
+<p><span style="color: #FFCB6B"><code>======= </code></p>
+<p><code>Też zmieniam rozdzial 2</code></p>
+<p><span style="color: #82AAFF"><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; b690756a26b0561e36382c61373505fa31575b08 </code></p>
+<p><code># Rozdział 3</code></p>
+<p>(...)</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide20" data-state="slide20">
+<div class="step slide "><!-- Building MarkdownRenderable --><p><span style="color: #C3E88D"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD </code></p>
+<p>'głowa' mojej wersji - moje zmiany</p>
+<p><br></p>
+<p><span style="color: #82AAFF"><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; b690756a26b0561e36382c61373505fa31575b08 </code></p>
+<p>commit id zmiany z serwera - konfliktujące zmiany</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide21" data-state="slide21">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Jak to naprawić?</h2>
+<p><br>
+<span style="color: #C3E88D"> Wystarczy skasować* niechciane fragmenty kodu</p>
+<p><br></p>
+<p><span style="font-size: 80%"> <span style="color: #BB80B3"> *Nowoczesne edytory kodu mają do tego interfejs</span></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide22" data-state="slide22">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide23" data-state="slide23">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building PresentationEndRenderable --></div>
+</div>
+<!-- <script src="./libs/impress.js"></script> -->
+<script src="./libs/reveal.js"></script>
+
+<script>
+    // impress().init();
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: false,
+        progress: false,
+        center: true,
+        hash: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/highlight/highlight.js', async: true },
+            // { src: 'plugin/search/search.js', async: true },
+            // { src: 'plugin/zoom-js/zoom.js', async: true },
+            // { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+
+
+</body>
+
+</html>

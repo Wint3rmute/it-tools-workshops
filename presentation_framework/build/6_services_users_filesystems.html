@@ -1,0 +1,802 @@
+<!-- Building PresentationStartRenderable --><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./libs/asciinema-player.css">
+    <link rel="stylesheet" href="./libs/reveal.css">
+    <script src="./libs/asciinema-player.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./Comfortaa-VariableFont:wght.ttf"> -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Regular.ttf">  -->
+    <!-- <link rel="stylesheet" href="./fonts/Comfortaa-Bold.ttf"> -->
+
+    <title>Prometheus Presentation Framework</title>
+
+    <link rel="stylesheet" href="./libs/presentation.css">
+
+</head>
+
+<body>
+
+    <div class='reveal' id='impress'>
+        <div class='slides'><!-- Building SlideBeginRenderable --><section id="slide0" data-state="slide0">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1>Wnętrzności Linuxa</h1>
+<p><br></p>
+<h2>Usługi</h2>
+<h2>Użytkownicy</h2>
+<h2>System plików</h2><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide1" data-state="slide1">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h2>Plan wykładu</h2><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide2" data-state="slide2">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #C3E88D"> Usługi</h3>
+<ul>
+<li>
+<p>Trochę teorii o procesach w systemie</p>
+</li>
+<li>
+<p><code>systemd</code> - program, który zarządza usługami</p>
+</li>
+<li>
+<p>Uruchamianie i zatrzymywanie usług</p>
+</li>
+<li>
+<p>Prosta własna usługa</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide3" data-state="slide3">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #FFCB6B"> Użytkownicy ( i grupy)</h3>
+<ul>
+<li>
+<p>Po co nam są</p>
+</li>
+<li>
+<p>Uprawnienia</p>
+</li>
+<li>
+<p><code>sudo</code></p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide4" data-state="slide4">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #82AAFF"> System plików</h3>
+<ul>
+<li>
+<p>Filozofia systemu plików na Linuxie</p>
+</li>
+<li>
+<p>Opis struktury systemu plików - co i gdzie jest</p>
+</li>
+<li>
+<p>Montowanie dysków, VFS</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide5" data-state="slide5">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Po co Wam to - cel wykładu</h2>
+<p><br></p>
+<ul>
+<li>
+<p>Korzystanie z usług jest konieczne przy</p>
+<p>większości zadań administratorskich,</p>
+<p>więc <span style="color: #FF5370"> warto to umieć</p>
+</li>
+<li>
+<p>Tak samo jest z uprawnieniami użytkowników</p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Wprowadzenie do Dockera - który będzie za tydzień</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide6" data-state="slide6">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><span style="color: #C3E88D"> Usługi</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide7" data-state="slide7">
+<div class="step slide "><!-- Building MarkdownRenderable --><h3><span style="color: #C3E88D"> Teoria</h3>
+<ul>
+<li>
+<p>Usługa a proces</p>
+</li>
+<li>
+<p>Jakie programy działają jako zwykłe procesy?</p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Jakie powinny być usługami?</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide8" data-state="slide8">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h2>Usługi, z których (nieświadomie) korzystacie</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> SDDM/GDM - Uruchamia interfejs logowania i GUI</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> NetworkManager - Zarządza interfejsami sieciowymi</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> SSHD - Pozwala połączyć się z serwerem przez SSH</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide9" data-state="slide9">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h3><code>systemd</code> - obecnie najpopularniejszy menedżer usług</h3>
+<p><br>
+<code>systemd, init - systemd  system and service manager</code>
+<br>
+<br></p>
+<ul>
+<li>
+<p><span style="color: #FF5370">   Wykorzystywany we wszystkich nowych dystrybucjach </span></p>
+</li>
+<li>
+<p><span style="color: #F78C6C">   Kontrolowany za pomocą polecenia <code>systemctl</code> </span></p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide10" data-state="slide10">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h2>Systemctl status</h2>
+<p><code>systemctl status &lt;service name&gt;</code></p>
+<p><code style="white-space: pre">
+<span style="color: #C3E88D">$<span style="color: white"> systemctl status sshd
+* sshd.service - OpenSSH Daemon
+  Loaded: loaded (/usr/lib/systemd/system/sshd.service;
+  Active: <span style="color: #C3E88D"> active (running)<span style="color: white"> since Mon 2019-12-02 23:24:53
+ Main PID: 14903 (sshd)
+   Tasks: 1 (limit: 4915)
+(...)
+</code></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide11" data-state="slide11">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Systemctl start/stop</h2>
+<p><code>systemctl start/stop &lt;service name&gt;</code></p><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video1"
+    src="casts/systemctl_start_stop"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video1").play();
+            document.getElementById("video1").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide11', function() {
+            setTimeout(function() {
+                document.getElementById("video1").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide12', function() {
+            document.getElementById("video1").pause();
+        } );
+
+        Reveal.addEventListener( 'slide10', function() {
+            document.getElementById("video1").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide12" data-state="slide12">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Systemctl enable/disable</h2>
+<p><code>systemctl enable/disable &lt;service name&gt;</code></p>
+<p><br></p>
+<p><span style="color: #C3E88D"> Uruchamianie usługi przy starcie systemu.</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide13" data-state="slide13">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #BB80B3"> Przykład własnej usługi</h2>
+<!-- warning: c u r s e d    m a r k d o w n   a h e a d -->
+
+<p><code>
+[Unit] <br>
+<span style="color: #C3E88D"> Description<span style="color: white">=<span style="color: #BB80B3">Moja usługa uwu <br>
+ <br> <span style="color: white">
+[Service] <br>
+<span style="color: #C3E88D"> Type<span style="color: white">=<span style="color: #BB80B3">exec <br>
+<span style="color: #C3E88D"> ExecStart<span style="color: white">=<span style="color: #BB80B3">/home/wint3rmute/moj_program <br>
+<span style="color: #C3E88D"> RemainAfterExit<span style="color: white">=<span style="color: #BB80B3">true <br>
+ <br><span style="color: white">
+[Install] <br>
+<span style="color: #C3E88D"> WantedBy<span style="color: white">=<span style="color: #BB80B3">multi-user.target <br>
+</code></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide14" data-state="slide14">
+<div class="step slide long"><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video2"
+    src="casts/custom_systemd_service"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video2").play();
+            document.getElementById("video2").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide14', function() {
+            setTimeout(function() {
+                document.getElementById("video2").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide15', function() {
+            document.getElementById("video2").pause();
+        } );
+
+        Reveal.addEventListener( 'slide13', function() {
+            document.getElementById("video2").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide15" data-state="slide15">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #C3E88D"> Podsumowanie</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #FF5370"> Usługi działają niezależnie od użytkowników</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> <code>systemctl</code> pozwala kontrolować usługi</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Usługi mogą startować razem z systemem</p>
+<ul>
+<li><span style="color: #F07178"> I są wznawiane po restarcie</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #82AAFF"> Usługa = zwykły program + plik konfiguracyjny</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide16" data-state="slide16">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><span style="color: #FFCB6B"> Użytkownicy (i grupy)</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide17" data-state="slide17">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Co może użytkownik?</h2>
+<p><br></p>
+<ul>
+<li>
+<p>Posiadać pliki</p>
+</li>
+<li>
+<p>Uruchamiać programy</p>
+</li>
+<li>
+<p>Zmieniać uprawnienia <em>własnych</em> plików</p>
+</li>
+<li>
+<p>Należeć do grupy</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide18" data-state="slide18">
+<div class="step slide long"><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video3"
+    src="casts/ls_l"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video3").play();
+            document.getElementById("video3").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide18', function() {
+            setTimeout(function() {
+                document.getElementById("video3").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide19', function() {
+            document.getElementById("video3").pause();
+        } );
+
+        Reveal.addEventListener( 'slide17', function() {
+            document.getElementById("video3").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide19" data-state="slide19">
+<div class="step slide long"><!-- Building MarkdownRenderable --><p><code >
+<span style="color: #82AAFF">d<span style="color: #C3E88D">rwx<span style="color: #FFCB6B">r-x<span style="color: #FF5370">r-x <span style="color: white"> 2 <span style="color: #F78C6C"> wint3rmute<span style="color: #BB80B3"> wint3rmute <span style="color: white"> 4096 Nov  7 09:28 <span style="color: #82AAFF"> Music </code>
+<code style="white-space:pre">
+<span style="color: #C3E88D">Upra<span style="color: #FFCB6B">wni<span style="color: #FF5370">enia <span style="color: #F78C6C"> Użytkownik <span style="color: #BB80B3">Grupa                      <span style="color: #82AAFF"> Nazwa
+</code></p>
+<p><br></p>
+<p><span style="color: #82AAFF"> <code>d</code> - Directory - folder</p>
+<p><code>rwx - Read, Write, eXecute</code></p>
+<p><br></p>
+<p>Ale po co nam aż trzy?</p>
+<p><code>
+<span style="color: #C3E88D">rwx<span style="color: #FFCB6B">rwx<span style="color: #F78C6C">rwx <span style="color: white"> - Dla <span style="color: #C3E88D"> właściciela<span style="color: white">, dla <span style="color: #FFCB6B"> grupy<span style="color: white">, dla <span style="color: #F78C6C"> pozostałych.
+</code></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide20" data-state="slide20">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h2>Przykłady</h2>
+<p><code>
+<span style="color: #C3E88D">rwx<span style="color: #FFCB6B">rwx<span style="color: #F78C6C">rwx <span style="color: white"> - Każdy może robić wszystko z tym plikiem.
+</code></p>
+<p><br></p>
+<p><code>
+<span style="color: #C3E88D">rwx<span style="color: #FFCB6B">---<span style="color: #F78C6C">--- <span style="color: white"> - Tylko <span style="color: #C3E88D"> właściciel <span style="color: white"> ma dostęp do pliku.<br>
+<br>
+<span style="color: #FF5370"> Inni użytkownicy nie mogą go nawet odczytać!
+</code></p>
+<p><br></p>
+<p><code>
+<span style="color: #C3E88D">rwx<span style="color: #FFCB6B">r-x<span style="color: #F78C6C">r-- <span style="color: white"> - <span style="color: #C3E88D"> właściciel<span style="color: white"> może wszystko<span style="color: white">, <span style="color: #FFCB6B"> grupa <br>
+<br>
+<span style="color: white"> może odczytywać i wykonywać, <span style="color: #F78C6C"> reszta<span style="color: white"> może tylko czytać.
+</code></p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide21" data-state="slide21">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h2>Po co nam <span style="color: #FFCB6B"> grupy <span style="color: white"> ?</h2>
+<p><br>
+Grupy pozwalają nadać użytkownikom dostęp do części systemu:</p>
+<ul>
+<li>
+<p>Grupa może posiadać folder, dostępny tylko dla członków grupy</p>
+</li>
+<li>
+<p>Grupa może mieć dostęp do wybranych poleceń/funkcji</p>
+<ul>
+<li><code>adm</code> - odczytywanie logów</li>
+<li><code>wireshark</code> - monitorowanie interfejsów sieciowych</li>
+<li><code>input</code> - monitorowanie urządzeń wejścia/wyjścia</li>
+</ul>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide22" data-state="slide22">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video4"
+    src="casts/file_permissions_and_ownership"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video4").play();
+            document.getElementById("video4").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide22', function() {
+            setTimeout(function() {
+                document.getElementById("video4").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide23', function() {
+            document.getElementById("video4").pause();
+        } );
+
+        Reveal.addEventListener( 'slide21', function() {
+            document.getElementById("video4").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide23" data-state="slide23">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #FFCB6B"> Sudo</h2>
+<p><br>
+Plik <code>/etc/sudoers</code>:</p>
+<p><br></p>
+<p>Konfiguracja <span style="color: #FFCB6B"> <code>sudo</code> <span style="color: white"> - użytkownicy i grupy,</p>
+<p>które mogą używać komendy <span style="color: #FFCB6B"> <code>sudo</code><span style="color: white">.</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide24" data-state="slide24">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #FFCB6B"> Podsumowanie</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> Użytkownicy mogą posiadać pliki i uruchamiać procesy</p>
+</li>
+<li>
+<p><span style="color: #FF5370"> Każdy plik posiada prawa dostępu, określające:</p>
+<ul>
+<li>
+<p><span style="color: #F78C6C"> Co może robić z nim właściciel</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Co może robić z nim grupa</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Co mogą robić z nim pozostali</p>
+</li>
+</ul>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide25" data-state="slide25">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><span style="color: #82AAFF"> System plików</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide26" data-state="slide26">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Filozofia</h2>
+<p><br>
+<span style="color: #82AAFF"> <em>Everything is a file</em> <span style="color: white"> - wszystko jest plikiem</p>
+<ul>
+<li>
+<p>Urządzenia peryferyjne</p>
+<ul>
+<li>
+<p>Klawiatury</p>
+</li>
+<li>
+<p>Karty sieciowe</p>
+</li>
+<li>
+<p>Karty dźwiękowe</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Dyski i pendrive'y</p>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Strumienie do komunikacji międzyprocesowej</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide27" data-state="slide27">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h2>Struktura systemu plików</h2>
+<p><code>$ ls /</code></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> <code>bin</code> - Podstawowe programy wiersza poleceń (bash, ls, cat)</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> <code>etc</code> - Systemowe pliki konfiguracyjne</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> <code>usr</code> - Aplikacje użytkownika (pliki wykonywalne programów)</p>
+</li>
+<li>
+<p><span style="color: #F07178"> <code>var</code> - Zmienne dane aplikacji (tabele baz danych)</p>
+</li>
+<li>
+<p><span style="color: #FF5370"> <code>dev</code> - Urządzenia (dyski, pendrive'y, karty SD, kamery)</p>
+</li>
+<li>
+<p><span style="color: #82AAFF"> <code>home</code> - Katalogi użytkowników (tu zazwyczaj siedzisz)</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide28" data-state="slide28">
+<div class="step slide long"><!-- Building MarkdownRenderable --><h2>VFS</h2>
+<p><br></p>
+<p>Wszystkie zamontowane urządzenia dyskowe połączone są w <br>
+<br>
+strukturę drzewiastą, którą nazywamy "pliki na komputerze".</p>
+<p><span style="color: #FFCB6B">
+<br>
+Dane moga znajdować się na różnych dyskach (lub nawet <br><br>
+gdzieś w internecie), i dalej być widoczne jak normalne pliki.</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide29" data-state="slide29">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video5"
+    src="casts/lsblk_example"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video5").play();
+            document.getElementById("video5").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide29', function() {
+            setTimeout(function() {
+                document.getElementById("video5").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide30', function() {
+            document.getElementById("video5").pause();
+        } );
+
+        Reveal.addEventListener( 'slide28', function() {
+            document.getElementById("video5").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide30" data-state="slide30">
+<div class="step slide long"><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video6"
+    src="casts/usb_mount"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video6").play();
+            document.getElementById("video6").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide30', function() {
+            setTimeout(function() {
+                document.getElementById("video6").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide31', function() {
+            document.getElementById("video6").pause();
+        } );
+
+        Reveal.addEventListener( 'slide29', function() {
+            document.getElementById("video6").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide31" data-state="slide31">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2>Ręczne montowanie</h2>
+<p><br></p>
+<p><span style="color: #FF5370"> <code>mount</code></p>
+<p><em>Zamontuj</em> urządzenie w wybranym miejscu systemu plików</p>
+<p><br></p>
+<p><span style="color: #C3E88D"> <code>umount</code></p>
+<p><em>Odmontuj</em> urządzenie z systemu plików</p><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide32" data-state="slide32">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video7"
+    src="casts/mount_umount"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video7").play();
+            document.getElementById("video7").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide32', function() {
+            setTimeout(function() {
+                document.getElementById("video7").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide33', function() {
+            document.getElementById("video7").pause();
+        } );
+
+        Reveal.addEventListener( 'slide31', function() {
+            document.getElementById("video7").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide33" data-state="slide33">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #82AAFF"> Podsumowanie</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> <em>Wszystko jest plikiem</em></p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> Wszystkie zamontowane urządzenia z danymi:</p>
+<ul>
+<li>
+<p>znajdują się na <em>drzewie plików</em></p>
+</li>
+<li>
+<p>mogą być <em>montowane</em> w różnych miejscach</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Jako system plików można zamontować też:</p>
+<ul>
+<li>
+<p>Dysk sieciowy</p>
+</li>
+<li>
+<p>Katalog na stronie internetowej</p>
+</li>
+</ul>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide34" data-state="slide34">
+<div class="step slide long"><!-- Building MarkdownRenderable --><!-- Building AsciinemaRenderable -->
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video8"
+    src="casts/http_mount"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video8").play();
+            document.getElementById("video8").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide34', function() {
+            setTimeout(function() {
+                document.getElementById("video8").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide35', function() {
+            document.getElementById("video8").pause();
+        } );
+
+        Reveal.addEventListener( 'slide33', function() {
+            document.getElementById("video8").pause();
+        } );
+
+    });
+</script><!-- Building MarkdownRenderable --><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide35" data-state="slide35">
+<div class="step slide first_slide"><!-- Building MarkdownRenderable --><h1><span style="color: #FF5370"> Podsumowanie</h1><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide36" data-state="slide36">
+<div class="step slide "><!-- Building MarkdownRenderable --><!-- P O D S U M O W A N I E  -->
+
+<h2><span style="color: #C3E88D"> Usługi</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #FF5370"> Usługi działają niezależnie od użytkowników</p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> <code>systemctl</code> pozwala kontrolować usługi</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Usługi mogą startować razem z systemem</p>
+<ul>
+<li><span style="color: #F07178"> I są wznawiane po restarcie</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #82AAFF"> Usługa = zwykły program + plik konfiguracyjny</p>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide37" data-state="slide37">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #FFCB6B"> Użytkownicy i grupy</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> Użytkownicy mogą posiadać pliki i uruchamiać procesy</p>
+</li>
+<li>
+<p><span style="color: #FF5370"> Każdy plik posiada prawa dostępu, określające:</p>
+<ul>
+<li>
+<p><span style="color: #F78C6C"> Co może robić z nim właściciel</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Co może robić z nim grupa</p>
+</li>
+<li>
+<p><span style="color: #F78C6C"> Co mogą robić z nim pozostali</p>
+</li>
+</ul>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building MarkdownRenderable --><!-- Building SlideBeginRenderable --><section id="slide38" data-state="slide38">
+<div class="step slide "><!-- Building MarkdownRenderable --><h2><span style="color: #82AAFF"> System plików</h2>
+<p><br></p>
+<ul>
+<li>
+<p><span style="color: #C3E88D"> <em>Wszystko jest plikiem</em></p>
+</li>
+<li>
+<p><span style="color: #FFCB6B"> Wszystkie zamontowane urządzenia z danymi:</p>
+<ul>
+<li>
+<p>znajdują się na <em>drzewie plików</em></p>
+</li>
+<li>
+<p>mogą być <em>montowane</em> w różnych miejscach</p>
+</li>
+</ul>
+</li>
+<li>
+<p><span style="color: #BB80B3"> Jako system plików można zamontować też:</p>
+<ul>
+<li>
+<p>Dysk sieciowy</p>
+</li>
+<li>
+<p>Katalog na stronie internetowej</p>
+</li>
+</ul>
+</li>
+</ul><!-- Building SlideEndRenderable --></div>
+</section><!-- Building PresentationEndRenderable --></div>
+</div>
+<!-- <script src="./libs/impress.js"></script> -->
+<script src="./libs/reveal.js"></script>
+
+<script>
+    // impress().init();
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: false,
+        progress: false,
+        center: true,
+        hash: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            // { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            // { src: 'plugin/highlight/highlight.js', async: true },
+            // { src: 'plugin/search/search.js', async: true },
+            // { src: 'plugin/zoom-js/zoom.js', async: true },
+            // { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+
+
+</body>
+
+</html>

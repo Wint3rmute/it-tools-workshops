@@ -1,0 +1,38 @@
+
+<div class='asciinema-wrapper'>
+<asciinema-player
+    id = "video{{ build_context.video_num }}"
+    src="casts/{{ src }}"
+    speed="1"
+    theme="asciinema"
+    loop="loop"
+    font-size="25">
+</asciinema-player>
+</div>
+<script>
+    // WATCH OUT FOR THIS UGLY MF PEACE OF CODE
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    
+        setTimeout(() => {          // I'm vomiting
+            document.getElementById("video{{build_context.video_num}}").play();
+            document.getElementById("video{{build_context.video_num}}").pause();
+        }, 0);
+
+        Reveal.addEventListener( 'slide{{build_context.slide_num}}', function() {
+            setTimeout(function() {
+                document.getElementById("video{{build_context.video_num}}").play();
+            }, 1000);
+        } );
+
+
+        Reveal.addEventListener( 'slide{{build_context.slide_num + 1}}', function() {
+            document.getElementById("video{{build_context.video_num}}").pause();
+        } );
+
+        Reveal.addEventListener( 'slide{{build_context.slide_num - 1}}', function() {
+            document.getElementById("video{{build_context.video_num}}").pause();
+        } );
+
+    });
+</script>
