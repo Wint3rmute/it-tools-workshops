@@ -8,7 +8,7 @@ No such tool existed, so I made it myself
 
 ### See it in action
 
-![demo gif](./demo.gif)
+![demo gif](./presentation_framework/demo.gif)
 
 # Installation
 * optional - create a virtual environment (`virtualenv venv`)
